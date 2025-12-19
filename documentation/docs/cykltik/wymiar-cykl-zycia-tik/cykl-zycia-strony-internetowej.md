@@ -1,151 +1,126 @@
 ---
 id: cykl-zycia-strony-internetowej
-title: Cykl życia strony internetowej (TIK). Ramowe wytyczne
-sidebar_label: Cykl życia strony internetowej
+title: Cykl życia serwisu internetowego (TIK). Ramowe wytyczne
+sidebar_label: Cykl życia serwisu
 sidebar_position: 4 
-keywords: [
-dostepnosc cyfrowa, 
-cykl życia
-]
-tags: [
-dostepnosc cyfrowa, 
-cykl życia
-]
+keywords: [dostepnosc cyfrowa, cykl życia]
+tags: [dostepnosc cyfrowa, cykl życia]
 data_zgloszenia: 6 października 2025 r.
-ostatnia_aktualizacja: 6 października 2025 r
+ostatnia_aktualizacja: 19 grudzień 2025 r.
 opracowanie: Dawid Górny
 wersja_robocza: true
 ---
 
-
-
 ## 1. Cel dokumentu
 
-Celem dokumentu jest przedstawienie minimalnych zasad, według których
-instytucja publiczna powinna planować, zamawiać, tworzyć, testować,
-utrzymywać i wycofywać stronę internetową w sposób dostępny cyfrowo.
-Treść ma charakter ramowy i powinna zostać uzupełniona o procedury
-wewnętrzne właściwe dla danej jednostki.
+Celem dokumentu jest przedstawienie minimalnych zasad, według których instytucja publiczna powinna planować, zamawiać, tworzyć, testować, utrzymywać i wycofywać serwis w sposób dostępny cyfrowo. Treść ma charakter ramowy i powinna zostać uzupełniona o procedury wewnętrzne właściwe dla danej jednostki.
 
 ## 2. Podstawy prawne i standardy
 
-* Ustawa z 4 kwietnia 2019 r. o dostępności cyfrowej stron
-internetowych i aplikacji mobilnych podmiotów publicznych.
-* WCAG 2.1 na poziomie AA (zaleca się uwzględnienie nowych kryteriów
-WCAG 2.2).
-* EN 301 549 jako norma obowiązująca przy interpretacji wymagań
-technicznych.
-* Rozporządzenie w sprawie Biuletynu Informacji Publicznej. Treści BIP
-muszą jednocześnie spełniać WCAG 2.1 AA.
+* Ustawa z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych.
+* Standard WCAG 2.1 / 2.2 na poziomie AA.
+* Norma EN 301 549 V3.2.1 oraz standard PDF/UA (ISO 14289).
+* Standard HTML (Living Standard) – w zakresie semantycznego kodu strukturalnego.
+* Standard prostego języka (Plain Language).
 
 ## 3. Role i odpowiedzialność
 
+Poniższy wykaz ról ma charakter porządkowy. W różnych projektach lub instytucjach role te mogą być nazwane inaczej lub łączone, zależnie od struktury organizacyjnej jednostki.
+
 ### 3.1 Opis ról
 
-* Koordynator dostępności - odpowiada za dostępność strony przez cały
-czas jej działania, uczestniczy w wyborze wykonawców, definiuje
-wytyczne, przyjmuje i rozpatruje skargi, zleca audyty oraz nadzoruje
-wyniki monitoringu.
-* Kierownik działu IT - zarządza serwerem i systemem CMS, utrzymuje
-repozytorium kodu, konfiguruje proces ciągłej integracji z testami WCAG
-i zapewnia działanie narzędzi monitorujących.
-* Zespół redakcyjny - publikuje treści zgodne z WCAG, dba o strukturę
-nagłówków, teksty alternatywne, nazwy elementów aktywnych i język
-prosty, bierze udział w przeglądach treści.
-* Projektant UX UI - tworzy makiety i style zgodne z zasadami
-projektowania uniwersalnego, w dużych projektach konsultuje się z firmą
-testerską.
-* Programista - koduje semantyczny HTML CSS JS, stosuje znaczniki
-ARIA, konfiguruje szablony CMS.
-* Firma testerska - skaluje zakres audytów do wielkości projektu,
-dostarcza raporty z zaleceniami.
+* **Dostępnościowiec** – definiuje wytyczne, uczestniczy w wyborze wykonawców, zleca audyty i rozpatruje skargi dotyczące dostępności.
+* **Administrator** – zarządza infrastrukturą i CMS. Odpowiada za repozytorium kodu, konfigurację techniczną oraz procesy CI/CD.
+* **Projektant** – tworzy makiety i style wizualne zgodnie z zasadami projektowania uniwersalnego.
+* **Programista** – implementuje semantyczny kod HTML, CSS i JS oraz stosuje atrybuty ARIA.
+* **Tester** – weryfikuje zgodność rozwiązań z WCAG i ustawą za pomocą walidatorów oraz technologii asystujących.
+* **Redaktor** – publikuje treści dostępne cyfrowo (nagłówki, opisy alternatywne, prosty język).
+* **Wykonawca** – podmiot zewnętrzny dostarczający komponenty systemu lub przeprowadzający audyty końcowe.
 
-### 3.2 Matryca RACI (przykład)
+### 3.2 Matryca RACI
 
-| Faza            | Koordynator | Kierownik IT | Zespół         | Firma         |
-|-----------------|-------------|--------------|---------------|---------------|
-| Planowanie      | A           | R            | C             | C             |
-| Projektowanie   | C           | C            | I             | C             |
-| Wykonanie       | C           | A R          | I             | I             |
-| Testowanie      | A           | C            | C             | R             |
-| Utrzymanie      | A           | R            | R             | C             |
+Poniższa tabela przedstawia podział odpowiedzialności w procesie zapewniania dostępności cyfrowej. Skupia się ona na kluczowych działaniach krytycznych dla zachowania standardów WCAG i wymogów ustawowych.
 
-Legenda: R - wykonuje, A - odpowiada, C - konsultuje, I - informowany.
+**Tabela 1. Przypisanie odpowiedzialności w procesie zapewniania dostępności cyfrowej serwisu.**
 
-## 4. Szkolenia
+| Faza cyklu życia | Dostępnościowiec | Administrator | Projektant | Programista | Tester | Redaktor | Wykonawca |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 1. Koncepcja i wymagania | A | R | C | I | | C | C |
+| 2. Projektowanie | C | I | R | C | | | C |
+| 3. Wykonanie i kodowanie | C | A | I | R | | | R |
+| 4. Testowanie i walidacja | A | I | | R | R | I | C |
+| 5. Publikacja i deklaracja | C | A | I | | C | R | I |
+| 6. Utrzymanie i rozwój | A | R | | | C | R | |
+| 7. Starzenie i wycofanie | A | R | | | | R | |
 
-* Przed projektowaniem: warsztat WCAG 2.1 2.2 dla projektantów,
-programistów i kierownika IT.
-* Przed kodowaniem: szkolenie redakcji i administratorów CMS z
-tworzenia treści dostępnych.
-* Przed publikacją: krótkie przypomnienie list kontrolnych dla
-wszystkich ról.
-* Co 12 miesięcy: sesja odświeżenia wiedzy o aktualnych standardach
-oraz najczęstszych problemach dostępności.
+**Legenda oznaczeń RACI:**
+* R (Realizuje / Responsible) – wykonuje zadanie.
+* A (Akceptuje / Accountable) – odpowiada za zadanie i zatwierdza efekt końcowy.
+* C (Konsultuje / Consulted) – doradza i opiniuje przed podjęciem decyzji.
+* I (Informowany / Informed) – otrzymuje kluczowe informacje o wynikach.
 
-## 5. Cykl życia strony internetowej
+## 4. Cykl życia serwisu
 
-### Faza 1 - Koncepcja i definiowanie wymagań
+### Faza 1 - Koncepcja i definiowanie wymagań
+* Zespół wpisuje wymagania WCAG i normę EN 301 549 do opisu zamówienia (SIWZ/OPZ).
+* **Dostępnościowiec** i **Administrator** sprawdzają, czy silnik serwisu (CMS) pozwala na pełną dostępność treści.
+* Kierownik projektu ustala matrycę RACI oraz planuje budżet na szkolenia i audyty.
 
-* W opisie zamówienia i SIWZ zapisuje się WCAG 2.1 (zalecane 2.2) AA,
-EN 301 549 oraz obowiązek posiadania Deklaracji Dostępności.
-* Powstaje matryca RACI oraz wstępny budżet na szkolenia, testy i
-audyty.
-* Analizowane są ryzyka i wybierane technologie przyjazne dostępności.
+### Faza 2 - Projektowanie
+* **Projektant** tworzy makiety serwisu zgodnie z zasadami projektowania uniwersalnego.
+* **Dostępnościowiec** lub **Wykonawca** ocenia makiety pod kątem WCAG przed rozpoczęciem prac programistycznych.
+* **Projektant** przygotowuje wytyczne dla programistów dotyczące nawigacji klawiaturą i etykiet pól.
 
-### Faza 2 - Projektowanie
+### Faza 3 - Wykonanie (kodowanie i integracja CMS)
+* **Programista** buduje semantyczny kod HTML, a **Administrator** wdraża automatyczne testy dostępności w procesie CI/CD.
+* **Redaktor** wprowadza do systemu treści testowe w celu sprawdzenia poprawności szablonów.
+* **Administrator** sprawdza, czy system CMS nie generuje błędnego kodu podczas publikacji treści.
 
-* Projektant przygotowuje makiety zgodne z zasadami projektowania
-uniwersalnego.
-* W dużych projektach makiety konsultowane są z firmą testerską.
-* Dokumentacja projektowa zawiera odniesienie do konkretnych kryteriów
-WCAG.
+### Faza 4 - Testowanie i walidacja
+* **Tester** wykonuje audyt techniczny kodu oraz testuje serwis za pomocą technologii asystujących.
+* Zespół opcjonalnie przeprowadza testy użyteczności z udziałem osób z niepełnosprawnościami.
+* **Programista** naprawia zgłoszone błędy, a **Tester** potwierdza ich skuteczne usunięcie.
 
-### Faza 3 - Wykonanie (kodowanie i integracja CMS)
+### Faza 5 - Publikacja i deklaracja
+* **Administrator** przenosi gotowy serwis na serwer produkcyjny.
+* **Dostępnościowiec** przygotowuje i zamieszcza w serwisie Deklarację Dostępności.
+* **Administrator** lub **Wykonawca** uruchamia system stałego monitoringu automatycznego.
 
-* Programista implementuje semantyczny kod, proces CI CD uruchamia
-testy automatyczne WCAG.
-* Redakcja publikuje treści testowe, kierownik IT uruchamia skanery
-automatyczne.
+### Faza 6 - Utrzymanie i rozwój
+* **Redaktor** dba o to, aby każda nowa treść oraz każdy załącznik (PDF/UA) spełniały zasady dostępności.
+* **Tester** sprawdza każdą nową funkcjonalność pod kątem regresji dostępności.
+* **Dostępnościowiec** aktualizuje Deklarację Dostępności po każdej zmianie oraz po corocznym przeglądzie (do 31 marca).
 
-### Faza 4 - Testowanie i walidacja
+### Faza 7 - Starzenie się i wycofanie
+* **Administrator** przygotowuje dostępną wersję archiwalną serwisu (np. statyczny HTML lub plik PDF/UA).
+* **Dostępnościowiec** informuje o wycofaniu serwisu w raportach dostępności i zapewnia odpowiednie przekierowania.
 
-* Mały serwis: pojedynczy audyt kandydata do publikacji.
-* Średni serwis: audyt wersji beta, audyt kandydata do publikacji.
-* Duży projekt: doradztwo przy makietach, testy iteracyjne w trakcie
-budowy, audyt kandydata do publikacji.
-* Raporty trafiają do koordynatora, poprawki są weryfikowane w testach
-weryfikacyjnych.
+## 5. Szkolenia i kompetencje
 
-### Faza 5 - Publikacja i deklaracja
-
-* Po pozytywnym audycie strona trafia na serwer produkcyjny.
-* Kierownik IT publikuje Deklarację Dostępności i formularz zgłaszania
-barier.
-* Dział IT lub firma zewnętrzna aktywuje monitoring automatyczny.
-
-### Faza 6 - Utrzymanie i rozwój
-
-* Skargi użytkowników usuwa się w terminach ustawowych.
-* Audyt kontrolny przeprowadzany jest co najmniej raz w roku lub po
-każdej dużej aktualizacji (nowy szablon, zmiana silnika CMS, duży
-moduł).
-* Procedura regresji: każda zmiana przechodzi test automatyczny i
-ręczny. Starsze wersje treści są archiwizowane, a Deklaracja Dostępności
-aktualizowana.
-
-### Faza 7 - Starzenie się i wycofanie
-
-* Tworzona jest dostępna kopia (HTML lub PDF UA), plan przekierowań i
-komunikat dla użytkowników.
-* Informacja trafia do Deklaracji Dostępności i rocznego raportu.
+* Projektanci i Programiści: Szkolenia techniczne z WCAG 2.1/2.2 i semantyki kodu.
+* Testerzy: Warsztaty z audytowania i obsługi czytników ekranu (NVDA, Jaws).
+* Dostępnościowcy: Zarządzanie dostępnością w organizacji i interpretacja norm prawnych.
+* Redaktorzy i Administratorzy CMS: Tworzenie dostępnych treści i zasady prostego języka.
 
 ## 6. Monitorowanie dostępności
 
-Monitoring automatyczny jest konfigurowany i utrzymywany przez dział IT lub firmę zewnętrzną. Obejmuje skanery WCAG oraz kontrolę błędów 404. Koordynator dostępności otrzymuje okresowe raporty i zleca działania korygujące.
+Monitoring automatyczny jest konfigurowany przez **Administratora**. Raporty są okresowo analizowane przez **Dostępnościowca**, który inicjuje działania naprawcze w przypadku wykrycia błędów w publikowanych treściach lub kodzie.
 
 ## 7. Planowane dokumenty pomocnicze
 
-* Lista kontrolna koordynatora dostępności dla każdej fazy.
-* Wzór klauzuli dostępności do SIWZ i umów.
-* Procedura reagowania na regresję oraz formularz zgłaszania barier.
+* Lista kontrolna Dostępnościowca dla każdej fazy.
+* Wzór klauzuli dostępności do umów z Wykonawcą.
+* Procedura zgłaszania barier i reagowania na regresję dostępności.
+
+## 8. Słownik pojęć
+
+* **ARIA** – atrybuty dla technologii asystujących (np. czytników ekranu).
+* **CI/CD** – zautomatyzowane procesy budowania i testowania zmian w serwisie.
+* **CMS** – system zarządzania treścią serwisu.
+* **Deklaracja Dostępności** – dokument opisujący stan dostępności i dane kontaktowe.
+* **HTML** – język znaczników używany do tworzenia struktury stron; semantyczny HTML jest kluczowy dla dostępności.
+* **Projektowanie uniwersalne** – projektowanie produktów użytecznych dla każdego bez potrzeby adaptacji.
+* **Regresja** – ponowne pojawienie się błędów po wprowadzeniu zmian w systemie.
+* **Semantyczny HTML** – kod używający znaczników zgodnie z ich funkcją.
+* **Serwis** – strona internetowa podmiotu publicznego, BIP lub aplikacja webowa realizująca zadania publiczne.
+* **PDF/UA** – standard tworzenia dostępnych plików PDF (ISO 14289).
